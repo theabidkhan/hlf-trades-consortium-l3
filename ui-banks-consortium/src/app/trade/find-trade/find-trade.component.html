@@ -1,0 +1,76 @@
+<div class="find-trade-container" id="find-trade-container">
+    <form [formGroup]="findTradeForm" (ngSubmit)="onSubmit()">
+      <table class ="form-group" id="table-findTrade">
+        <tr>
+          <td colspan=3><h2>Find Trade</h2></td>
+        </tr>
+        <tr><td colspan=3></td></tr>
+        <tr><td colspan=3></td></tr>
+
+        <tr>
+          <td colspan="3">
+            <label for ="tradeID" >Bank ID</label>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+            <input type="text" class="tradeID" placeholder="Trade ID" formControlName="tradeID" id="=tradeID" >
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan=3><div class="error" *ngIf="findTradeForm.controls['tradeID'].hasError('required') && findTradeForm.controls['tradeID'].touched">Trade ID required</div></td>
+        </tr>
+
+              
+        <tr><td colspan=3></td></tr>
+        <tr><td colspan=3></td></tr>
+        <tr><td colspan=3></td></tr>
+        
+        <tr>
+          <td colspan=3>
+            <button class="btn-find" [disabled]="findTradeForm.invalid">Find</button>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+            <button class="btn-back" (click)="goBack()"> Back</button>  
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan=3 ><div *ngIf="invalidTrade" class="error">Invalid Trade ID.</div></td>
+        </tr>
+        <tr><td colspan=3></td></tr>
+        <tr><td colspan=3></td></tr>
+     
+        <tr>
+            <td colspan="3"> <h3>Trade Details</h3></td>
+      </tr>
+            <tr>
+                <td class="header">Trade ID</td>
+                <td colspan=2 class="values">{{trade[0].Record.TradeID}}</td>
+            </tr>
+
+            <tr>
+                <td class="header">From Party</td>
+                <td colspan=2 class="values">{{trade[0].Record.FromParty}}</td>
+            </tr>
+
+            <tr >
+                <td class="header">To Party</td>
+                <td colspan=2 class="values">{{trade[0].Record.ToParty}}</td>
+            </tr>  
+            
+            <tr>
+                <td class="header">Amount</td>
+                <td colspan=2 class="values">{{trade[0].Record.Amount| currency :'₹ '}}</td>
+            </tr> 
+
+            <tr>
+                <td class="header">Trade Date</td>
+                <td colspan=2 class="values">{{trade[0].Record.TradeDate| date:'MM/dd/yyyy h:mm a'}}</td>
+            </tr> 
+
+            <tr>
+                <td class="header">Status</td>
+                <td colspan=2 class="values">{{trade[0].Record.Status}}</td>
+            </tr> 
+      </table>
+    </form>
+  </div>
+

@@ -1,0 +1,70 @@
+<div class="new-trade-container" id="new-trade-container">
+    <form [formGroup]="newTradeForm" (ngSubmit)="onSubmit()">
+      
+        <table class ="form-group" id="table-newTrade">
+
+            <tr>
+                <td colspan=3>
+                    <h2>New Trade</h2>
+                </td>
+            </tr>
+
+         
+            <tr>
+                <td >
+                    <label for ="fromParty" >From Party ID</label>
+                </td>
+                    
+                <td colspan="2">
+                    <input type="text" formControlName="fromParty" name="fromParty" class="form-control" id="fromParty" >
+                </td>
+            </tr>
+    
+            <tr >
+                <td >
+                    <label for ="toParty" >To Party ID</label>
+                </td>
+            
+                 
+                <td colspan="2">
+                    <select  formControlName="toParty" name="toParty" class="form-control" id="toParty">
+                        <option *ngFor= "let user of users; let i = index" value={{users[i].Record.UserID}}>{{users[i].Record.UserID}}</option>
+                    </select>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <label for ="amount" >Amount</label>
+                </td>
+
+                <td  colspan="2">
+                    <input type="text" formControlName="amount" name="amount" class="form-control" id="amount">
+                </td>
+            </tr>
+    
+            <tr>
+                <td colspan=3>
+                    <div class="error" *ngIf="newTradeForm.controls['amount'].hasError('required') && newTradeForm.controls['amount'].touched">Trade Amount required</div>
+                </td>
+            </tr>
+    
+            <tr>
+                <td colspan=3>
+                    <button class="btn-initiate" [disabled]="newTradeForm.invalid">Initiate</button>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                    <button class="btn-back" (click)="goBack()">Back</button>
+                </td>
+            </tr>
+
+           
+            <tr>
+                <td colspan=3 >
+                    <div *ngIf="invalidTrade" class="error">Invalid Data.</div>
+                </td>
+            </tr>
+           
+  
+      </table>
+    </form>
+  </div>

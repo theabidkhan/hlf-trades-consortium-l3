@@ -1,0 +1,39 @@
+<div class="listUser-container" id="listUser-container">
+    <form [formGroup]="listUserForm">
+      <table class ="form-group">
+        <tr>
+            <td colspan="2"><h2>Available Users</h2></td>
+            <td><button class="btn-back" (click)="goBack()"> Back</button></td>
+        </tr>
+          
+          <tr><td colspan="3"></td></tr>
+          <tr><td colspan="3"></td></tr>
+
+      </table>
+      <div id="table-wrapper">
+        <div id="table-scroll">
+       <table >
+        <thead>
+          <tr>
+              <th><span class="text">User ID</span></th>
+              <!-- <th><span class="text">Password</span></th> -->
+              <!-- <th><span class="text">User Name</span></th> -->
+              <th><span class="text">Bank Name</span></th>
+              <th><span class="text">User Balance</span></th>
+            </tr>
+      </thead>
+      <tbody>
+      <tr  *ngFor= "let user of users; let i = index">
+        <td class="rows" id="userID" >{{users[i].Record.UserID}}</td>
+        <!-- <td class="rows" id="password">{{users[i].Record.Password}}</td> -->
+        <!-- <td class="rows" id="userName">{{users[i].Record.UserName}}</td> -->
+        <td class="rows" id="bankName">{{users[i].Record.BankName }} </td>
+        <td class="rows" id="userBalance" >{{users[i].Record.UserBalance| currency :'₹ ' }}</td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
+  </form>
+</div>

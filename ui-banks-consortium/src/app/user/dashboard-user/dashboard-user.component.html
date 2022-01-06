@@ -1,0 +1,70 @@
+<div class="dashboard-container" id="dashboard-container">
+    <form [formGroup]="dashboardForm">
+      <div class="loggedInUser" id="loggedInUser"></div>
+      <table class ="form-group">
+        <tr>
+          <td >
+            <button class="btn-newTrade" (click)="newTrade()"> New Trade</button>
+          </td>
+        
+            <td  >
+              <button class="btn-findTrade" (click)="findTrade()"> Find Trade</button>
+            </td>
+
+            <td >
+              <button class="btn-findUser" (click)="findUser()"> Find User</button>
+            </td>
+         
+            <td >
+              <button class="btn-availableUsers" (click)="availableUsers()"> Available Users</button>
+            </td>
+          
+              <td>
+                <button class="btn-findBank"  (click)="findBank()"> Find Bank</button>
+              </td>
+  
+              <td>
+                <button class="btn-availableBanks" (click)="availableBanks()">Available Banks</button>
+              </td>
+            </tr>
+        </table>
+
+        <table class="form-group">
+       
+          
+        <tr>
+            <td colspan=6><h2>Existing Trades </h2></td>
+        </tr>
+
+</table>
+<div id="table-wrapper">
+  <div id="table-scroll">
+    <table >
+      <thead>
+        <tr >
+          <th> <span class="text">TradeID</span></th>
+          <th> <span class="text">FromParty</span></th>
+          <th> <span class="text">ToParty</span></th>
+          <th> <span class="text">Amount</span></th>
+          <th> <span class="text">TradeDate</span></th>
+          <th> <span class="text">Status</span></th>
+        </tr>
+      </thead>
+      
+      <tbody>
+            <tr  *ngFor= "let trade of trades; let i = index">
+              <td class="rows" id="tradeID" >{{trades[i].Record.TradeID}}</td>
+              <td class="rows" id="fromParty">{{trades[i].Record.FromParty}}</td>
+              <td class="rows" id="toParty">{{trades[i].Record.ToParty}}</td>
+              <td class="rows" id="amount">{{trades[i].Record.Amount | currency :'₹ ' }}</td>
+              <td class="rows" id="tradeDate" >{{trades[i].Record.TradeDate| date:'MM/dd/yyyy h:mm a'}}</td>
+              <td class="rows" id="status">{{trades[i].Record.Status}}</td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+</div>
+  </form>
+</div>
+
+  

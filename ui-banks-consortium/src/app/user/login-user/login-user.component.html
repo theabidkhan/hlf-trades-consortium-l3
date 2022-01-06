@@ -1,0 +1,52 @@
+<div class="login-container" id="login-container">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <table class ="form-group" id="table-login">
+        <tr>
+          <td colspan=3><h2>Login </h2></td>
+        </tr>
+        <tr><td colspan=3></td></tr>
+        <tr><td colspan=3></td></tr>
+
+        <tr>
+          <td><label for ="txtUserID" >UserID</label></td>
+          <td></td>
+          <td><input type="text" class="txtUserID" placeholder="UserID" formControlName="userID" id="=userID" ></td>
+        </tr>
+
+        <tr>
+          <td colspan=3>
+            <div  class="error" *ngIf="loginForm.controls['userID'].hasError('required') && loginForm.controls['userID'].touched">UserID required</div>           
+          </td>
+        </tr>
+
+        <tr>
+          <td><label for ="txtPassword" >Password</label></td>
+          <td></td>
+          <td> <input type="password" formControlName="password" ngModel="password"  class="txtPassword" id="password" ></td>
+        </tr>
+
+        <tr>
+          <td colspan=3><div class="error" *ngIf="(loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched)">Password required </div></td>
+        </tr>
+        
+        <tr><td colspan=3></td></tr>
+        <tr><td colspan=3></td></tr>
+        
+        <tr>
+          <td colspan=3>
+            <button class="btn-login" [disabled]="loginForm.invalid">Login</button>
+            &nbsp;&nbsp;&nbsp;
+            <button class="btn-signUp" (click)="signUp()">Sign Up</button>
+            &nbsp;&nbsp;&nbsp;
+            <button class="btn-reset" (click)="reset()">Reset</button>
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan=3 ><div *ngIf="invalidLogin" class="error">Invalid UserID or Password.</div></td>
+        </tr>
+
+      </table>
+    </form>
+  </div>
+

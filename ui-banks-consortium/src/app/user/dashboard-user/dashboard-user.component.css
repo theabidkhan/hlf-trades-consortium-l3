@@ -1,0 +1,115 @@
+.error
+{
+  color: #FF0000;
+  font-size: small;
+}
+
+.dashboard-container
+{
+  width: 830px;
+  padding: 40px;
+  position:fixed;
+  top: 50%;
+  left: 50%;
+  height:500px;
+  transform: translate(-50%,-50%);
+  background: #ffffff;
+  text-align: center;
+  transition: 0.50s;
+  border-radius: 85px;
+}
+
+h2
+{
+  color: rgb(14, 13, 13);
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.loggedInUser
+{
+  border:0;
+  background: none;
+  color: rgb(0, 0, 0);
+  width:200px;
+  text-align:left;
+}
+
+label
+{
+  display: inline-block;
+}
+
+table
+{
+  color:white;
+  border:0;
+  width:750px;
+  padding:10px;
+  align-self: center;
+}
+
+#table-wrapper 
+{
+  position:relative;
+}
+
+#table-scroll 
+{
+  height:265px;
+  overflow:auto;  
+  margin-top:20px;
+}
+
+#table-wrapper table 
+{
+  width:100%;
+}
+
+thead
+{
+  background: rgb(2, 158, 255);
+  color: rgb(10, 10, 10);
+  font-size: medium;
+}
+
+.rows
+{
+  background: #05013a;
+  font-size: medium;
+}
+
+.btn-newTrade, .btn-findTrade, .btn-findUser, .btn-availableUsers, .btn-findBank, .btn-availableBanks 
+{
+  border:0;
+  background: #050505;
+  margin: 5px auto;
+  text-align: center;
+  border: 1px solid #2ecc71;
+  padding: 5px 20px;
+  outline: none;
+  color: rgb(255, 255, 255);
+  transition: 0.25s; 
+  cursor: pointer;
+}
+
+.btn-newTrade
+{
+  border-top-left-radius: 24px;
+  border-bottom-left-radius: 24px;
+}
+
+.btn-availableBanks
+{
+  border-top-right-radius: 24px;
+  border-bottom-right-radius: 24px;
+}
+
+.btn-newTrade:hover, .btn-findTrade:hover, .btn-findUser:hover, .btn-availableUsers:hover, .btn-findBank:hover, .btn-availableBanks:hover
+{
+  background: #2ecc71;
+  color:black;
+}
+
+
+

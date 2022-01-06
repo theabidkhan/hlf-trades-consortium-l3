@@ -1,0 +1,118 @@
+.error{
+  color: #FF0000;
+  font-size: small;
+}
+
+.find-bank-container  {
+  width: 600px;
+  padding: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: #ffffff;
+  text-align: center;
+  transition: 0.50s;
+  border-radius: 85px;
+}
+
+
+table{
+  border:0;
+  width:450px;
+  padding:20px;
+}
+
+.find-bank-container h2{
+  color: rgb(10, 10, 10);
+  text-transform: uppercase;
+  font-weight: 500;
+  
+}
+
+.find-bank-container h3{
+  border:0;
+  color: white;
+  font-size: medium;
+  background:  rgb(0, 59, 117);
+  width: 500px;
+  height:25px;
+  vertical-align: middle;
+}
+
+
+.header{
+vertical-align: middle;
+border:0;
+background: rgb(2, 158, 255);
+  color: rgb(10, 10, 10);
+width:120px;
+}
+
+.values{
+vertical-align: middle;
+border:0;
+background: #05013a;
+color: rgb(255, 255, 255);
+width: 150px;   
+}
+
+
+
+.txtBankID:focus{
+width: 210px;
+border-color: #05f569;
+background-color: rgb(206, 231, 255);
+color: rgb(5, 5, 5);
+}
+
+.btn-find:focus, .btn-back:focus{
+width: 110px;
+border-color: #05f569;
+background-color: rgb(206, 231, 255);
+color: rgb(5, 5, 5);
+}
+
+
+
+.txtBankID{
+  background-color: black;
+  color:white;
+  border:0;
+  width: 200px;
+  border-radius: 24px;
+  transition: 0.25s;
+  
+  transition: 0.25s;
+  margin: 5px auto;
+  padding: 5px 20px;
+  outline: none;
+}
+
+label{
+  border:0;
+  background: none;
+  color: rgb(14, 13, 13);
+  width:100px
+}
+
+
+.btn-find, .btn-back {
+  border:0;
+  background: #0a0a0a;
+  margin: 5px auto;
+  text-align: center;
+  border: 1px solid #2ecc71;
+  padding: 5px 20px;
+  outline: none;
+  color: rgb(255, 245, 245);
+  border-radius: 24px;
+  transition: 0.25s;
+  cursor: pointer;
+  }
+
+  .btn-find:hover,  .btn-back:hover{
+    background: #2ecc71;
+    color:black;
+}
+  

@@ -1,0 +1,51 @@
+<div class="find-user-container">
+  <form [formGroup]="findUserForm" (ngSubmit)="onSubmit()">
+    <table class ="form-group" id="table-findUser">
+        <tr>
+        <td colspan=3><h2>Find User</h2></td>
+      </tr>
+
+      <tr> <td colspan=3><div class="newLine"></div></td> </tr>
+      
+      <tr>
+        <td><label for ="txtUserID" >User ID</label></td>
+        <td colspan=2><input type="text" class="txtUserID" placeholder="User ID" formControlName="userID" id="userID" ></td>
+      </tr>
+
+      <tr>
+        <td colspan=3><div class="error" *ngIf="findUserForm.controls['userID'].hasError('required') && findUserForm.controls['userID'].touched">User ID required</div></td>
+      </tr>
+      
+      <tr> <td colspan=3><div class="newLine"></div></td> </tr>
+      <tr> <td colspan=3><div class="newLine"></div></td> </tr>
+
+      <tr>
+        <td colspan=3> <button class="btn-find" [disabled]="findUserForm.invalid">Find</button> 
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="btn-back" (click)="goBack()"> Back</button>  </td>
+      </tr>
+      <tr>
+        <td colspan=3 ><div *ngIf="invalidUser" class="error">Invalid UserID.</div></td>
+      </tr>
+    </table>
+  
+    
+
+<div id="userDetails" formControlName="userDetails">
+<table>
+      <tr>
+          <td colspan="2"> <h3>User Details</h3></td>
+      </tr>
+          <tr >
+              <td class="header">User ID</td>
+              <td class="values">{{user[0].Record.UserID}}</td>
+          </tr>
+          <tr>
+              <td class="header">Bank Name</td>
+              <td  class="values">{{user[0].Record.BankName}}</td>
+          </tr>
+    </table>
+  </div> 
+</form>
+</div>
+

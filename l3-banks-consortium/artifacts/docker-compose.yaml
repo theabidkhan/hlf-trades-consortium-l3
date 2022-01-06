@@ -1,0 +1,308 @@
+#
+# Copyright IBM Corp. All Rights Reserved.
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+version: '2'
+
+services:
+
+  couchdb0:
+    container_name: couchdb0
+    image: hyperledger/fabric-couchdb:latest
+    # Populate the COUCHDB_USER and COUCHDB_PASSWORD to set an admin user and password 
+    # for CouchDB. This will prevent CouchDB from operating in an "Admin Party" mode.
+    environment:
+    - COUCHDB_USER= 
+    - COUCHDB_PASSWORD=
+    # Comment/Uncomment the port mapping if you want to hide/expose the CouchDB service, 
+    # for example map it to utilize Fauxton User Interface in dev environments.
+    ports: 
+    - "2984:5984"
+  
+  couchdb1:
+    container_name: couchdb1
+    image: hyperledger/fabric-couchdb:latest
+    # Populate the COUCHDB_USER and COUCHDB_PASSWORD to set an admin user and password 
+    # for CouchDB. This will prevent CouchDB from operating in an "Admin Party" mode.
+    environment:
+    - COUCHDB_USER= 
+    - COUCHDB_PASSWORD=
+    # Comment/Uncomment the port mapping if you want to hide/expose the CouchDB service, 
+    # for example map it to utilize Fauxton User Interface in dev environments.
+    ports: 
+    - "3984:5984"
+
+  couchdb2:
+    container_name: couchdb2
+    image: hyperledger/fabric-couchdb:latest
+    # Populate the COUCHDB_USER and COUCHDB_PASSWORD to set an admin user and password 
+    # for CouchDB. This will prevent CouchDB from operating in an "Admin Party" mode.
+    environment:
+    - COUCHDB_USER= 
+    - COUCHDB_PASSWORD=
+    # Comment/Uncomment the port mapping if you want to hide/expose the CouchDB service, 
+    # for example map it to utilize Fauxton User Interface in dev environments.
+    ports: 
+    - "4984:5984"
+  
+  couchdb3:
+    container_name: couchdb3
+    image: hyperledger/fabric-couchdb:latest
+    # Populate the COUCHDB_USER and COUCHDB_PASSWORD to set an admin user and password 
+    # for CouchDB. This will prevent CouchDB from operating in an "Admin Party" mode.
+    environment:
+    - COUCHDB_USER= 
+    - COUCHDB_PASSWORD=
+    # Comment/Uncomment the port mapping if you want to hide/expose the CouchDB service, 
+    # for example map it to utilize Fauxton User Interface in dev environments.
+    ports: 
+    - "6984:5984"
+  
+  couchdb4:
+    container_name: couchdb4
+    image: hyperledger/fabric-couchdb:latest
+    # Populate the COUCHDB_USER and COUCHDB_PASSWORD to set an admin user and password 
+    # for CouchDB. This will prevent CouchDB from operating in an "Admin Party" mode.
+    environment:
+    - COUCHDB_USER= 
+    - COUCHDB_PASSWORD=
+    # Comment/Uncomment the port mapping if you want to hide/expose the CouchDB service, 
+    # for example map it to utilize Fauxton User Interface in dev environments.
+    ports: 
+    - "7984:5984"
+  
+  couchdb5:
+    container_name: couchdb5
+    image: hyperledger/fabric-couchdb:latest
+    # Populate the COUCHDB_USER and COUCHDB_PASSWORD to set an admin user and password 
+    # for CouchDB. This will prevent CouchDB from operating in an "Admin Party" mode.
+    environment:
+    - COUCHDB_USER= 
+    - COUCHDB_PASSWORD=
+    # Comment/Uncomment the port mapping if you want to hide/expose the CouchDB service, 
+    # for example map it to utilize Fauxton User Interface in dev environments.
+    ports: 
+    - "8984:5984"
+
+  ca.idfc.banksconsortium.com:
+    image: hyperledger/fabric-ca
+    environment:
+      - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server-config
+      - FABRIC_CA_SERVER_CA_NAME=ca-idfc
+      - FABRIC_CA_SERVER_CA_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.idfc.banksconsortium.com-cert.pem
+      - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/5c628f77b352d397643d64f22a50631c57d7c3c52721c40310447447e389f4f9_sk
+      - FABRIC_CA_SERVER_TLS_ENABLED=true
+      - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.idfc.banksconsortium.com-cert.pem
+      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/5c628f77b352d397643d64f22a50631c57d7c3c52721c40310447447e389f4f9_sk
+    ports:
+      - "7054:7054"
+    command: sh -c 'fabric-ca-server start -b admin:adminpw -d'
+    volumes:
+      - ./channel/crypto-config/peerOrganizations/idfc.banksconsortium.com/ca/:/etc/hyperledger/fabric-ca-server-config
+      - ../ca-server-config/fabric-ca-server-config.yaml:/etc/hyperledger/fabric-ca-server-config/fabric-ca-server-config.yaml
+    container_name: ca_peeridfc
+
+  ca.hsbc.banksconsortium.com:
+    image: hyperledger/fabric-ca
+    environment:
+      - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server-config
+      - FABRIC_CA_SERVER_CA_NAME=ca-hsbc
+      - FABRIC_CA_SERVER_CA_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.hsbc.banksconsortium.com-cert.pem
+      - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/b54435cdd9370435d5a273b39fe5dffaf16c412c06980bf50f9cb74959460a71_sk
+      - FABRIC_CA_SERVER_TLS_ENABLED=true
+      - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.hsbc.banksconsortium.com-cert.pem
+      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/b54435cdd9370435d5a273b39fe5dffaf16c412c06980bf50f9cb74959460a71_sk
+    ports:
+      - "8054:7054"
+    command: sh -c 'fabric-ca-server start -b admin:adminpw -d'
+    volumes:
+      - ./channel/crypto-config/peerOrganizations/hsbc.banksconsortium.com/ca/:/etc/hyperledger/fabric-ca-server-config
+      - ../ca-server-config/fabric-ca-server-config.yaml:/etc/hyperledger/fabric-ca-server-config/fabric-ca-server-config.yaml
+    container_name: ca_peerhsbc
+
+  ca.idbi.banksconsortium.com:
+    image: hyperledger/fabric-ca
+    environment:
+      - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server-config
+      - FABRIC_CA_SERVER_CA_NAME=ca-idbi
+      - FABRIC_CA_SERVER_CA_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.idbi.banksconsortium.com-cert.pem
+      - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/aaa90bbef0a57fe8a0a8524db78417affd257009e239fbacafb6c1c4c4ed5d69_sk
+      - FABRIC_CA_SERVER_TLS_ENABLED=true
+      - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.idbi.banksconsortium.com-cert.pem
+      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/aaa90bbef0a57fe8a0a8524db78417affd257009e239fbacafb6c1c4c4ed5d69_sk
+    ports:
+      - "9054:7054"
+    command: sh -c 'fabric-ca-server start -b admin:adminpw -d'
+    volumes:
+      - ./channel/crypto-config/peerOrganizations/idbi.banksconsortium.com/ca/:/etc/hyperledger/fabric-ca-server-config
+      - ../ca-server-config/fabric-ca-server-config.yaml:/etc/hyperledger/fabric-ca-server-config/fabric-ca-server-config.yaml
+    container_name: ca_peeridbi
+
+  orderer.banksconsortium.com:
+    container_name: orderer.banksconsortium.com
+    image: hyperledger/fabric-orderer
+    environment:
+      - FABRIC_LOGGING_SPEC=debug
+      - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
+      - ORDERER_GENERAL_GENESISMETHOD=file
+      - ORDERER_GENERAL_GENESISFILE=/etc/hyperledger/configtx/genesis.block
+      - ORDERER_GENERAL_LOCALMSPID=OrdererMSP
+      - ORDERER_GENERAL_LOCALMSPDIR=/etc/hyperledger/crypto/orderer/msp
+      - ORDERER_GENERAL_TLS_ENABLED=true
+      - ORDERER_GENERAL_TLS_PRIVATEKEY=/etc/hyperledger/crypto/orderer/tls/server.key
+      - ORDERER_GENERAL_TLS_CERTIFICATE=/etc/hyperledger/crypto/orderer/tls/server.crt
+      - ORDERER_GENERAL_TLS_ROOTCAS=[/etc/hyperledger/crypto/orderer/tls/ca.crt, /etc/hyperledger/crypto/peeridfc/tls/ca.crt, /etc/hyperledger/crypto/peerhsbc/tls/ca.crt]
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/orderers
+    command: orderer
+    ports:
+      - 7050:7050
+    volumes:
+        - ./channel:/etc/hyperledger/configtx
+        - ./channel/crypto-config/ordererOrganizations/banksconsortium.com/orderers/orderer.banksconsortium.com/:/etc/hyperledger/crypto/orderer
+        - ./channel/crypto-config/peerOrganizations/idfc.banksconsortium.com/peers/peer0.idfc.banksconsortium.com/:/etc/hyperledger/crypto/peeridfc
+        - ./channel/crypto-config/peerOrganizations/hsbc.banksconsortium.com/peers/peer0.hsbc.banksconsortium.com/:/etc/hyperledger/crypto/peerhsbc
+
+  peer0.idfc.banksconsortium.com:
+    container_name: peer0.idfc.banksconsortium.com
+    extends:
+      file:   base.yaml
+      service: peer-base
+    environment:
+      - CORE_PEER_ID=peer0.idfc.banksconsortium.com
+      - CORE_PEER_LOCALMSPID=idfcMSP
+      - CORE_PEER_ADDRESS=peer0.idfc.banksconsortium.com:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer1.idfc.banksconsortium.com:7051      
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.idfc.banksconsortium.com:7051
+      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB 
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb0:5984
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=
+    ports:
+      - 7051:7051
+      - 7053:7053
+    volumes:
+        - ./channel/crypto-config/peerOrganizations/idfc.banksconsortium.com/peers/peer0.idfc.banksconsortium.com/:/etc/hyperledger/crypto/peer
+    depends_on:
+      - orderer.banksconsortium.com
+      - couchdb0
+
+  peer1.idfc.banksconsortium.com:
+    container_name: peer1.idfc.banksconsortium.com
+    extends:
+      file:   base.yaml
+      service: peer-base
+    environment:
+      - CORE_PEER_ID=peer1.idfc.banksconsortium.com
+      - CORE_PEER_LOCALMSPID=idfcMSP
+      - CORE_PEER_ADDRESS=peer1.idfc.banksconsortium.com:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.idfc.banksconsortium.com:7051      
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.idfc.banksconsortium.com:7051
+      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB 
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb1:5984
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=
+    ports:
+      - 7056:7051
+      - 7058:7053
+    volumes:
+        - ./channel/crypto-config/peerOrganizations/idfc.banksconsortium.com/peers/peer1.idfc.banksconsortium.com/:/etc/hyperledger/crypto/peer
+    depends_on:
+      - orderer.banksconsortium.com
+      - couchdb1
+
+  peer0.hsbc.banksconsortium.com:
+    container_name: peer0.hsbc.banksconsortium.com
+    extends:
+      file:   base.yaml
+      service: peer-base
+    environment:
+      - CORE_PEER_ID=peer0.hsbc.banksconsortium.com
+      - CORE_PEER_LOCALMSPID=hsbcMSP
+      - CORE_PEER_ADDRESS=peer0.hsbc.banksconsortium.com:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer1.hsbc.banksconsortium.com:7051      
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.hsbc.banksconsortium.com:7051
+      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB 
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb2:5984
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=
+    ports:
+      - 8051:7051
+      - 8053:7053
+    volumes:
+        - ./channel/crypto-config/peerOrganizations/hsbc.banksconsortium.com/peers/peer0.hsbc.banksconsortium.com/:/etc/hyperledger/crypto/peer
+    depends_on:
+      - orderer.banksconsortium.com
+      - couchdb2
+
+  peer1.hsbc.banksconsortium.com:
+    container_name: peer1.hsbc.banksconsortium.com
+    extends:
+      file:   base.yaml
+      service: peer-base
+    environment:
+      - CORE_PEER_ID=peer1.hsbc.banksconsortium.com
+      - CORE_PEER_LOCALMSPID=hsbcMSP
+      - CORE_PEER_ADDRESS=peer1.hsbc.banksconsortium.com:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.hsbc.banksconsortium.com:7051      
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.hsbc.banksconsortium.com:7051
+      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB 
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb3:5984
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD= 
+    ports:
+      - 8056:7051
+      - 8058:7053
+    volumes:
+        - ./channel/crypto-config/peerOrganizations/hsbc.banksconsortium.com/peers/peer1.hsbc.banksconsortium.com/:/etc/hyperledger/crypto/peer
+    depends_on:
+      - orderer.banksconsortium.com
+      - couchdb3
+
+  peer0.idbi.banksconsortium.com:
+    container_name: peer0.idbi.banksconsortium.com
+    extends:
+      file:   base.yaml
+      service: peer-base
+    environment:
+      - CORE_PEER_ID=peer0.idbi.banksconsortium.com
+      - CORE_PEER_LOCALMSPID=idbiMSP
+      - CORE_PEER_ADDRESS=peer0.idbi.banksconsortium.com:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer1.idbi.banksconsortium.com:7051      
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.idbi.banksconsortium.com:7051
+      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB 
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb4:5984
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=
+    ports:
+      - 9051:7051
+      - 9053:7053
+    volumes:
+        - ./channel/crypto-config/peerOrganizations/idbi.banksconsortium.com/peers/peer0.idbi.banksconsortium.com/:/etc/hyperledger/crypto/peer
+    depends_on:
+      - orderer.banksconsortium.com
+      - couchdb4
+
+  peer1.idbi.banksconsortium.com:
+    container_name: peer1.idbi.banksconsortium.com
+    extends:
+      file:   base.yaml
+      service: peer-base
+    environment:
+      - CORE_PEER_ID=peer1.idbi.banksconsortium.com
+      - CORE_PEER_LOCALMSPID=idbiMSP
+      - CORE_PEER_ADDRESS=peer1.idbi.banksconsortium.com:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.idbi.banksconsortium.com:7051      
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.idbi.banksconsortium.com:7051
+      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB 
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb5:5984
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=
+    ports:
+      - 9056:7051
+      - 9058:7053
+    volumes:
+        - ./channel/crypto-config/peerOrganizations/idbi.banksconsortium.com/peers/peer1.idbi.banksconsortium.com/:/etc/hyperledger/crypto/peer
+    depends_on:
+      - orderer.banksconsortium.com
+      - couchdb5

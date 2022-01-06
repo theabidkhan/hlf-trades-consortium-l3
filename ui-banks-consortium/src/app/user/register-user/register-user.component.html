@@ -1,0 +1,81 @@
+<div class="register-container" id="register-container">
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <table class ="form-group" id="table-register">
+      <tr>
+        <td colspan=2><h2>Register User</h2></td>
+      </tr>
+
+      <tr> <td colspan=2><div class="newLine"></div></td> </tr>
+      
+      <tr>
+        <td><label for ="userName" >User Name</label></td>
+        <td><input type="text" class="userName" placeholder="User Name" formControlName="userName" id="userName" ></td>
+      </tr>
+
+      <tr>
+        <td colspan=2><div class="error" *ngIf="registerForm.controls['userName'].hasError('required') && registerForm.controls['userName'].touched">User Name required</div></td>
+      </tr>
+
+      <tr>
+        <td><label for ="bankName" >Bank Name</label></td>
+        <td> <select formControlName="bankName" name="bankName" class="form-control" id="bankName" size="1" >
+            <option value="IDFC" >IDFC</option>
+            <option value="HSBC">HSBC</option>
+            <option value="IDBI">IDBI</option>
+        </select></td>
+      </tr>
+
+      <tr>
+        <td colspan=2><div class="error" *ngIf="(registerForm.controls['bankName'].hasError('required') && registerForm.controls['bankName'].touched)">Bank Name required </div></td>
+      </tr>
+      
+      
+
+      <tr>
+        <td><label for ="password" >Password</label></td>
+        <td> <input type="password" formControlName="password" placeholder="Password" name="password" class="form-control" id="password"></td>
+      </tr>
+     
+     <tr>
+       <td colspan=2><div class="error" *ngIf="registerForm.controls['password'].hasError('required') && registerForm.controls['password'].touched">Password is required</div></td>
+     </tr> 
+
+     
+
+     <tr>
+       <td> <label for ="confirmPassword" >Confirm Password</label></td>
+  
+       <td><input type="password" formControlName="confirmPassword" placeholder="Confirm Password" name="confirmPassword" class="form-control" id="confirmPassword"></td>
+     </tr>
+
+     <tr>
+      <td colspan=2>
+        <div class="error" *ngIf="registerForm.controls['confirmPassword'].hasError('required') && registerForm.controls['confirmPassword'].touched">Confirm your Password</div>
+        <div class="error" *ngIf="registerForm.controls['password'].value != registerForm.controls['confirmPassword'].value">Password Mismatch</div>
+       </td>
+     </tr>   
+
+     <tr> <td colspan=2><div class="newLine"></div></td> </tr>
+      <tr>
+        <td ><button class="btn-register" [disabled]="registerForm.invalid">Register</button></td>
+       
+        <td ><button class="btn-login" (click)=login()>Login</button></td>
+      </tr>
+
+
+      <tr >
+        <td colspan="2" ><h6 id="userID">User ID : {{user}} generated.</h6></td>
+      </tr>
+
+
+      <tr>
+        <td colspan=2 >
+          <div *ngIf="invalidRegister" class="error">Invalid Data.</div>
+        </td>
+      </tr>
+
+      
+
+    </table>
+  </form>
+</div>

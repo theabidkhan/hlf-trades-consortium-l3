@@ -1,0 +1,61 @@
+<div class="find-bank-container" id="find-bank-container">
+    <form [formGroup]="findBankForm" (ngSubmit)="onSubmit()">
+      <table class ="form-group" id="table-findBank">
+        <tr>
+          <td colspan=3><h2>Find Bank</h2></td>
+        </tr>
+        <tr><td colspan=3></td></tr>
+        <tr><td colspan=3></td></tr>
+
+        <tr>
+          <td colspan="3">
+            <label for ="txtBankID" >Bank ID</label>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+            <input type="text" class="txtBankID" placeholder="Bank ID" formControlName="bankID" id="bankID" >
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan=3><div class="error" *ngIf="findBankForm.controls['bankID'].hasError('required') && findBankForm.controls['bankID'].touched">UserID required</div></td>
+        </tr>
+
+              
+        <tr><td colspan=3></td></tr>
+        <tr><td colspan=3></td></tr>
+        <tr><td colspan=3></td></tr>
+        
+        <tr>
+          <td colspan=3>
+            <button class="btn-find" [disabled]="findBankForm.invalid">Find</button>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+            <button class="btn-back" (click)="goBack()"> Back</button>  
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan=3 ><div *ngIf="invalidBank" class="error">Invalid Bank ID.</div></td>
+        </tr>
+        <tr><td colspan=3></td></tr>
+        <tr><td colspan=3></td></tr>
+     
+        <tr>
+            <td colspan="3"> <h3>Bank Details</h3></td>
+      </tr>
+            <tr >
+                <td class="header">Bank ID</td>
+                <td colspan=2 class="values">{{bank[0].Record.BankID}}</td>
+            </tr>
+
+            <tr>
+                <td class="header">Bank Name</td>
+                <td colspan=2 class="values">{{bank[0].Record.BankName}}</td>
+            </tr>
+
+            <tr>
+                <td class="header">Location</td>
+                <td colspan=2 class="values">{{bank[0].Record.Location}}</td>
+            </tr>     
+      </table>
+    </form>
+  </div>
+

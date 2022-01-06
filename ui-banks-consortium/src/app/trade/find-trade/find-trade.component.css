@@ -1,0 +1,114 @@
+.error{
+    color: #FF0000;
+    font-size: small;
+  }
+  
+.find-trade-container  {
+  width: 600px;
+  padding: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: #ffffff;
+  text-align: center;
+  transition: 0.50s;
+  border-radius: 85px;
+}
+  
+table{
+  border:0;
+  width:450px;
+  padding:20px;
+}
+
+.find-trade-container h2{
+  color: rgb(7, 7, 7);
+  text-transform: uppercase;
+  font-weight: 500;
+  
+}
+
+.find-trade-container h3{
+  border:0;
+  color: white;
+  font-size: medium;
+  background:  rgb(0, 59, 117);
+  width: 500px;
+  height:25px;
+  vertical-align: middle;
+}
+
+
+.header{
+  vertical-align: middle;
+  border:0;
+  background: rgb(83, 0, 160);
+  color: white;
+  width:120px;
+}
+
+.values{
+  vertical-align: middle;
+  border:0;
+  background: rgb(173, 145, 199);
+  color: rgb(26, 24, 24);
+  width: 150px;    
+}
+
+
+
+.tradeID:focus{
+  width: 210px;
+  border-color: #05f569;
+  background-color: rgb(0, 59, 117);
+}
+
+.btn-find:focus, .btn-back:focus{
+  width: 110px;
+  border-color: #05f569;
+  background-color: rgb(0, 59, 117);
+  }
+  
+
+
+.tradeID{
+  background-color:rgb(4, 30, 56);
+  border:0;
+  width: 200px;
+  border-radius: 24px;
+  transition: 0.25s;
+  color: white;
+  transition: 0.25s;
+  margin: 5px auto;
+  padding: 5px 20px;
+  outline: none;
+}
+
+label{
+  border:0;
+  background: none;
+  color: rgb(10, 10, 10);
+  width:100px
+}
+
+
+.btn-find, .btn-back {
+  border:0;
+  background: black;
+  margin: 5px auto;
+  text-align: center;
+  border: 1px solid #2ecc71;
+  padding: 5px 20px;
+  outline: none;
+  color: rgb(255, 255, 255);
+  border-radius: 24px;
+  transition: 0.25s;
+  cursor: pointer;
+  }
+
+.btn-find:hover,  .btn-back:hover{
+  background: #2ecc71;
+  color: black;;
+}
+  

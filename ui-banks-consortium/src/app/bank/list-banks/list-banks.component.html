@@ -1,0 +1,29 @@
+<div class="listBank-container" id="listBank-container">
+    <form [formGroup]="listBankForm">
+      <table class ="form-group" id="table-listBank">
+        <tr>
+            <td colspan="3"><h2>Available Banks</h2></td>
+        </tr>
+          
+          <tr><td colspan="3"></td></tr>
+          <tr><td colspan="3"></td></tr>
+          <tr>
+            <td colspan="3">
+              <button class="btn-back" (click)="goBack()"> Back</button>
+            </td>
+          </tr>
+        
+        <tr class="thead">
+          <th>Bank ID</th>
+          <th>Bank Name</th>
+          <th>Location</th>
+        </tr>
+
+        <tr  *ngFor= "let bank of banks; let i = index">
+          <td class="rows" id="bankID" >{{banks[i].Record.BankID}}</td>
+          <td class="rows" id="bankName">{{banks[i].Record.BankName}} </td>
+          <td class="rows" id="location" >{{banks[i].Record.Location}}</td>
+        </tr>
+    </table>
+  </form>
+</div>

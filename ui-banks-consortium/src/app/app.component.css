@@ -1,0 +1,61 @@
+table
+{
+ 
+  width:100%;
+}
+
+.nav-bar 
+{
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500;
+    background: #05013a;
+    text-align: left;
+    block-size: 0.7in;
+    text-indent: 0.2cm;
+    text-shadow: .25px .25px #2ecc71;;
+    padding-top: 0.2cm;
+}
+
+.footer-bar
+{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  background: #05013a;
+  text-align: center;
+  block-size: 0.3in;
+  text-indent: 0.05cm;
+  text-shadow: .10px .10px #2ecc71;;
+  padding-top: 0.1cm;
+  font-size: smaller;
+} 
+
+
+
+
+ 
+.btn-logout 
+{
+  border:0;
+  background: none;  
+  margin: 5px auto;
+  text-align: center;
+  border: 1px solid #2ecc71;
+  padding: 5px 20px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+  cursor: pointer;
+  float: right;
+
+}
+  
+.btn-logout:hover
+{
+  background: #2ecc71;
+}
+  

@@ -1,0 +1,127 @@
+.error
+{
+  color: #FF0000;
+  font-size: small;
+}
+  
+.register-container 
+{
+  width: 500px;
+  height:450px;
+  padding: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: #ffffff;
+  text-align: center;
+  transition: 0.50s;
+  border-radius: 85px;
+}
+  
+h2
+{
+  color: rgb(14, 13, 13);
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+table
+{
+  border:0;
+  width:450px;
+  padding:20px;
+}
+
+input[type=text],input[type=password]
+{  
+  border:0;
+  width: 200px;
+  border-radius: 24px;
+  transition: 0.25s;
+  margin: 5px auto;
+  padding: 5px 20px;
+  outline: none;
+  background-color: black;
+  color:white;
+}
+
+select
+{
+  background-color: black;
+  border:0;
+  width: 200px;
+  border-radius: 24px;
+  transition: 0.25s;
+  color:white;
+  transition: 0.25s;
+  margin: 5px auto;
+  padding: 5px 20px;
+  outline: none;
+}
+
+h6
+{
+  width: "150px";
+  text-align: "center";
+  color:rgb(7, 7, 7);
+  background-color: rgb(6, 32, 0);
+  height: 25px;
+  display:none;
+}
+
+
+
+input[type=text]:focus,input[type=password]:focus,.register-container select:focus
+{
+  width: 210px;
+  border-color: #05f569;
+  background-color: rgb(206, 231, 255);
+  color: rgb(5, 5, 5);
+}
+
+.newLine
+{
+  height:20px;
+}
+
+
+.btn-register:focus, .btn-back:focus
+{
+  width: 110px;
+  border-color: #05f569;
+  background: #2ecc71;
+  color: black;
+}
+
+label
+{
+  border:0;
+  background: none;
+  color: rgb(5, 5, 5);
+  text-align:left;
+  display:block; 
+  width:150px; 
+  font-weight: bold;
+}
+
+.btn-register , .btn-login
+{
+  background: black;
+  border:0;
+  margin: 5px auto;
+  text-align: center;
+  border: 1px solid #2ecc71;
+  padding: 5px 20px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+  cursor: pointer;  
+}
+
+.btn-register:hover, .btn-login:hover
+{
+  background: #2ecc71;
+  color:black;
+}

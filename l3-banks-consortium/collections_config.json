@@ -1,0 +1,98 @@
+[
+  {
+      "name": "collection-idfc-hsbc",
+      "policy": {
+          "identities": [
+              {
+                  "role": {
+                      "name": "member",
+                      "mspId": "idfcMSP"
+                  }
+              },
+              {
+                  "role": {
+                      "name": "member",
+                      "mspId": "hsbcMSP"
+                  }
+              }
+          ],
+          "policy": {
+              "1-of": [
+                  {
+                      "signed-by": 0
+                  },
+                  {
+                      "signed-by": 1
+                  }
+              ]
+          }
+      },
+      "requiredPeerCount": 1,
+      "maxPeerCount": 4,
+      "blockToLive": 100000
+  },
+  {
+    "name": "collection-idfc-idbi",
+    "policy": {
+        "identities": [
+            {
+                "role": {
+                    "name": "member",
+                    "mspId": "idfcMSP"
+                }
+            },
+            {
+                "role": {
+                    "name": "member",
+                    "mspId": "idbiMSP"
+                }
+            }
+        ],
+        "policy": {
+            "1-of": [
+                {
+                    "signed-by": 0
+                },
+                {
+                    "signed-by": 1
+                }
+            ]
+        }
+    },
+    "requiredPeerCount": 1,
+    "maxPeerCount": 4,
+    "blockToLive": 100000
+},
+{
+    "name": "collection-hsbc-idbi",
+    "policy": {
+        "identities": [
+            {
+                "role": {
+                    "name": "member",
+                    "mspId": "hsbcMSP"
+                }
+            },
+            {
+                "role": {
+                    "name": "member",
+                    "mspId": "idbiMSP"
+                }
+            }
+        ],
+        "policy": {
+            "1-of": [
+                {
+                    "signed-by": 0
+                },
+                {
+                    "signed-by": 1
+                }
+            ]
+        }
+    },
+    "requiredPeerCount": 1,
+    "maxPeerCount": 4,
+    "blockToLive": 100000
+}
+]

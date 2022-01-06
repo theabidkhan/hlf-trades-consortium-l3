@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tokens>
+  <idfcjwt>"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjM3NTg2OTM0NTI4LCJ1c2VybmFtZSI6IlwiaWRmYy11c2VyMEEwNDZcIiIsIm9yZ05hbWUiOiJpZGZjIiwiaWF0IjoxNTg2OTM0NTI4fQ.csMw8_i-EgUq6zrN_rnWVPzbCqE5jxiKxcEBE7PwKa8"</idfcjwt>
+  <hsbcjwt>"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjM3NTg2OTM0NTI5LCJ1c2VybmFtZSI6IlwiaHNiYy11c2VyMEEwNDZcIiIsIm9yZ05hbWUiOiJoc2JjIiwiaWF0IjoxNTg2OTM0NTI5fQ.x7MsuJoQo446xGhYX7K70Q0VBR-UY7M641ucHV6zpj4"</hsbcjwt>
+  <idbijwt>"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjM3NTg2OTM0NTMwLCJ1c2VybmFtZSI6IlwiaWRiaS11c2VyMEEwNDZcIiIsIm9yZ05hbWUiOiJpZGJpIiwiaWF0IjoxNTg2OTM0NTMwfQ.GZwuHQQRAI8fOY7fqQfY4ptXvtichm3adbDE8Di-_lY"</idbijwt>
+</tokens>
